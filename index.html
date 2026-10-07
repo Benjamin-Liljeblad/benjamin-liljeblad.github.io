@@ -30,6 +30,34 @@
             box-shadow:0 4px 20px rgba(0,0,0,0.08);
             margin-top:30px;
         }
+
+        /* Accordion (My Skills) */
+        .accordion {
+            margin-top: 30px;
+            border: 2px solid #c7d1e0;
+            border-radius: 12px;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            display: none;
+            margin-top: 15px;
+        }
+
+        .accordion-content ul {
+            margin: 0;
+            padding-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -49,12 +77,48 @@
     <div class="about-box">
         <h2>About Me</h2>
         <p>
-            I’m Benjamin Liljeblad, a Communication and IT student based in Stockholm.
+            I’m Benjamin Liljeblad, a Marketing Communication and IT student based in Stockholm.
             I enjoy learning new tools, solving problems, and working with people.
             This website is where I share my journey, my interests, and my projects.
         </p>
     </div>
+
+    <!-- My Skills Accordion -->
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion()">
+            <span>My Skills</span>
+            <span id="arrow">▸</span>
+        </div>
+
+        <div id="accordion-content" class="accordion-content">
+            <ul>
+                <li>Digital communication</li>
+                <li>AI-assisted web development</li>
+                <li>Basic HTML & CSS</li>
+                <li>Problem solving</li>
+                <li>IT fundamentals</li>
+                <li>Leadership & coaching</li>
+                <li>Creativity & design sense</li>
+            </ul>
+        </div>
+    </div>
+
 </div>
+
+<script>
+function toggleAccordion() {
+    const content = document.getElementById("accordion-content");
+    const arrow = document.getElementById("arrow");
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+        arrow.textContent = "▸"; // pil åt sidan
+    } else {
+        content.style.display = "block";
+        arrow.textContent = "▾"; // pil nedåt
+    }
+}
+</script>
 
 </body>
 </html>
