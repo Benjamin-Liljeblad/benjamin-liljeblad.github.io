@@ -9,20 +9,37 @@
         nav { background:#333; padding:10px; text-align:center; }
         nav a { color:white; margin:0 15px; text-decoration:none; font-size:18px; }
         nav a:hover { text-decoration:underline; }
+
         .container {
-    max-width:900px;
-    margin:40px auto;
-    background:white;
-    padding:40px;
-    border-radius:12px;
-    border:2px solid #c7d1e0; /* gråblå kant */
-    box-shadow:0 4px 20px rgba(0,0,0,0.1);
-}
+            max-width:900px;
+            margin:40px auto;
+            background:white;
+            padding:40px;
+            border-radius:12px;
+            border:2px solid #c7d1e0; /* gråblå kant */
+            box-shadow:0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Project box – samma stil som About Me */
+        .project-box {
+            background:#ffffff;
+            padding:30px;
+            border-radius:12px;
+            border:2px solid #c7d1e0;
+            box-shadow:0 4px 20px rgba(0,0,0,0.08);
+            margin-top:30px;
+        }
+
+        .project-box ul {
+            padding-left:20px;
+            margin:0;
+        }
     </style>
 </head>
 <body>
 
 <header>My Projects</header>
+
 <nav>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
@@ -32,11 +49,14 @@
 
 <div class="container">
     <h1>Here are my projects:</h1>
-    <p>
-        This section will soon showcase my work, including communication projects,
-        IT assignments, personal creations, and anything else that reflects my skills
-        and interests.
-    </p>
+
+    <div class="project-box">
+        <h2>My creations:</h2>
+        <ul>
+            <li><a href="index.html">This portfolio website</a></li>
+        </ul>
+    </div>
+
 </div>
 
 </body>
