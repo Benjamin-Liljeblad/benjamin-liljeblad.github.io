@@ -3,26 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact – Benjamin Liljeblad</title>
+
     <style>
-        body { margin:0; font-family:Arial; background:#f4f4f4; }
-        header { background:#222; color:white; padding:20px; text-align:center; }
-        nav { background:#333; padding:10px; text-align:center; }
-        nav a { color:white; margin:0 15px; text-decoration:none; font-size:18px; }
-        nav a:hover { text-decoration:underline; }
+        /* ====== THEME VARIABLES ====== */
+        :root[data-theme='light'] {
+            --bg-color: #f4f4f4;
+            --text-color: #1a1a1a;
+            --card-bg: #ffffff;
+            --accent: #c7d1e0;
+            --header-bg: #222;
+            --nav-bg: #333;
+            --nav-text: white;
+        }
+
+        :root[data-theme='dark'] {
+            --bg-color: #1a1a1a;
+            --text-color: #f1f1f1;
+            --card-bg: #2a2a2a;
+            --accent: #444;
+            --header-bg: #000;
+            --nav-bg: #111;
+            --nav-text: #e6e6e6;
+        }
+
+        :root[data-theme='darkblue'] {
+            --bg-color: #0d1b2a;
+            --text-color: #e0e6ed;
+            --card-bg: #1b263b;
+            --accent: #415a77;
+            --header-bg: #0d1b2a;
+            --nav-bg: #1b263b;
+            --nav-text: #e0e6ed;
+        }
+
+        /* ====== ORIGINAL STYLES (struktur 100% bevarad) ====== */
+        body { 
+            margin:0; 
+            font-family:Arial; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+        }
+
+        header { 
+            background: var(--header-bg); 
+            color:white; 
+            padding:20px; 
+            text-align:center; 
+        }
+
+        nav { 
+            background: var(--nav-bg); 
+            padding:10px; 
+            text-align:center; 
+        }
+
+        nav a { 
+            color: var(--nav-text); 
+            margin:0 15px; 
+            text-decoration:none; 
+            font-size:18px; 
+        }
+
+        nav a:hover { 
+            text-decoration:underline; 
+        }
+
         .container {
             max-width:900px;
             margin:40px auto;
-            background:white;
+            background: var(--card-bg);
             padding:40px;
             border-radius:12px;
-            border:2px solid #c7d1e0;
+            border:2px solid var(--accent);
             box-shadow:0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* ====== SETTINGS ICON ====== */
+        .settings-icon {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+        }
+
+        .settings-icon:hover {
+            transform: rotate(20deg);
+        }
+
+        /* ====== SETTINGS MENU ====== */
+        .settings-menu {
+            position: fixed;
+            top: 70px;
+            right: 25px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 15px;
+            width: 160px;
+            display: none;
+            box-shadow:0 4px 20px rgba(0,0,0,0.15);
+            z-index: 9999;
+        }
+
+        .settings-menu h3 {
+            margin-top: 0;
+            font-size: 18px;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .settings-menu button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 8px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background: var(--accent);
+            font-weight: bold;
+            color: var(--text-color);
+            transition: background 0.2s ease;
+        }
+
+        .settings-menu button:hover {
+            background: #b5c0d3;
         }
     </style>
 </head>
+
 <body>
 
 <header>Contact Me</header>
+
 <nav>
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
@@ -30,12 +145,42 @@
     <a href="cv.html">CV</a>
 </nav>
 
+<!-- ====== SETTINGS ICON ====== -->
+<div class="settings-icon" onclick="toggleSettingsMenu()">⚙️</div>
+
+<!-- ====== SETTINGS MENU ====== -->
+<div id="settings-menu" class="settings-menu">
+    <h3>Theme</h3>
+    <button onclick="setTheme('light')">Light</button>
+    <button onclick="setTheme('dark')">Dark</button>
+    <button onclick="setTheme('darkblue')">Dark Blue</button>
+</div>
+
 <div class="container">
     <h1>Contact</h1>
     <p>Email: <strong>benjamin.liljeblad@live.com</strong></p>
     <p>Location: Stockholm, Sweden</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-liljeblad-935085279" target="_blank">Visit my LinkedIn</a></p>
 </div>
+
+<!-- ====== JAVASCRIPT ====== -->
+<script>
+function toggleSettingsMenu() {
+    const menu = document.getElementById("settings-menu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+}
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+}
+
+loadTheme();
+</script>
 
 </body>
 </html>
