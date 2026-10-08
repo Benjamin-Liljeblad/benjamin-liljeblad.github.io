@@ -16,6 +16,7 @@
             --nav-text: white;
             --btn-bg: #222;
             --btn-text: white;
+            --link-color: #0066cc; /* Light mode link */
         }
 
         :root[data-theme='dark'] {
@@ -28,6 +29,7 @@
             --nav-text: #e6e6e6;
             --btn-bg: #333;
             --btn-text: #f1f1f1;
+            --link-color: #4da3ff; /* Dark mode link */
         }
 
         :root[data-theme='darkblue'] {
@@ -40,6 +42,7 @@
             --nav-text: #e0e6ed;
             --btn-bg: #415a77;
             --btn-text: #e0e6ed;
+            --link-color: #7fb3ff; /* Dark blue link */
         }
 
         /* ====== ORIGINAL STYLES (struktur 100% bevarad) ====== */
@@ -72,6 +75,17 @@
 
         nav a:hover { 
             text-decoration:underline; 
+        }
+
+        /* ====== LINK COLOR FOR CONTENT ====== */
+        .container a:not(.btn) {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container a:not(.btn):hover {
+            opacity: 0.8;
         }
 
         .container {
