@@ -165,6 +165,27 @@
             background: #b5c0d3;
         }
 
+        /* ====== COLOR ACCENT ====== */
+        :root[data-theme='light'] { --primary: #2563eb; --primary-soft: #e0eaff; --bg-color: #f3f6fb; }
+        :root[data-theme='dark'] { --primary: #60a5fa; --primary-soft: #1e2a3d; }
+        :root[data-theme='darkblue'] { --primary: #7fb3ff; --primary-soft: #23395b; }
+        header { background: linear-gradient(135deg, #1e3a8a, var(--primary)); font-size: 26px; font-weight: 700; letter-spacing: 0.5px; padding: 28px 20px; }
+        nav { border-bottom: 3px solid var(--primary); }
+        nav a { padding: 4px 2px; border-bottom: 2px solid transparent; }
+        nav a:hover { text-decoration: none; border-bottom-color: var(--primary); }
+        .container { border-top: 5px solid var(--primary); }
+        .container h1 { color: var(--primary); margin-top: 0; }
+        .container h2 { position: relative; padding-left: 14px; }
+        .container h2::before { content: ""; position: absolute; left: 0; top: 15%; height: 70%; width: 4px; border-radius: 4px; background: var(--primary); }
+        .cv-card h2, .contact-card h2 { padding-left: 0; }
+        .cv-card h2::before { display: none; }
+        .accordion-content ul.skills li { background: var(--primary-soft); color: var(--text-color); border: 1px solid var(--primary); }
+        .btn { background: var(--primary) !important; color: #fff !important; }
+        .btn:hover { filter: brightness(1.1); }
+        .btn-outline { background: transparent !important; color: var(--text-color) !important; border: 2px solid var(--primary); }
+        .cv-card, .contact-card, .about-box, .accordion { border-color: var(--primary-soft) !important; }
+        a.contact-card:hover, .cv-card:hover { border-color: var(--primary) !important; }
+
         /* ====== MOBILE ====== */
         @media (max-width: 600px) {
             .container { margin: 16px; padding: 20px; }
