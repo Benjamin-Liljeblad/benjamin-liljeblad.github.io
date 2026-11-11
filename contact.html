@@ -151,6 +151,15 @@
             background: #b5c0d3;
         }
 
+        .intro { margin-top: -8px; opacity: 0.8; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+        .container a.contact-card, .contact-card { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 24px 16px; border: 2px solid var(--accent); border-radius: 12px; background: var(--card-bg); color: var(--text-color); text-decoration: none; font-weight: normal; text-align: center; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+        a.contact-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); opacity: 1; }
+        .contact-icon { font-size: 30px; }
+        .contact-label { font-weight: 700; font-size: 18px; }
+        .contact-value { font-size: 15px; opacity: 0.8; word-break: break-word; }
+        .container a.contact-card .contact-value { color: var(--link-color); opacity: 1; }
+
         /* ====== MOBILE ====== */
         @media (max-width: 600px) {
             .container { margin: 16px; padding: 20px; }
@@ -187,16 +196,27 @@
 
 <div class="container">
     <h1>Contact</h1>
+    <p class="intro">Feel free to reach out – I'm happy to connect.</p>
 
-    <p>Email: <strong>benjamin.liljeblad@live.com</strong></p>
-    <p>Location: Stockholm, Sweden</p>
-
-    <p>
-        LinkedIn:  
-        <a href="https://www.linkedin.com/in/benjamin-liljeblad-935085279" target="_blank">
-            Visit my LinkedIn
+    <div class="contact-grid">
+        <a class="contact-card" href="mailto:benjamin.liljeblad@live.com">
+            <span class="contact-icon">✉️</span>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">benjamin.liljeblad@live.com</span>
         </a>
-    </p>
+
+        <a class="contact-card" href="https://www.linkedin.com/in/benjamin-liljeblad-935085279" target="_blank" rel="noopener">
+            <span class="contact-icon">💼</span>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">Visit my profile</span>
+        </a>
+
+        <div class="contact-card">
+            <span class="contact-icon">📍</span>
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Stockholm, Sweden</span>
+        </div>
+    </div>
 </div>
 
 <!-- ====== JAVASCRIPT ====== -->
