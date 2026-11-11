@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Resume – Benjamin Liljeblad</title>
 
     <style>
@@ -48,7 +52,8 @@
         /* ====== ORIGINAL STYLES (struktur 100% bevarad) ====== */
         body { 
             margin:0; 
-            font-family:Arial; 
+            font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            line-height:1.6; 
             background: var(--bg-color); 
             color: var(--text-color);
         }
@@ -170,6 +175,16 @@
 
         .settings-menu button:hover {
             background: #b5c0d3;
+        }
+
+        /* ====== MOBILE ====== */
+        @media (max-width: 600px) {
+            .container { margin: 16px; padding: 20px; }
+            .about-box, .accordion { padding: 18px; }
+            nav a { display: inline-block; margin: 6px 10px; font-size: 16px; }
+            header { padding: 16px 60px; font-size: 18px; }
+            .settings-icon { top: 14px; right: 16px; }
+            .settings-menu { top: 60px; right: 16px; }
         }
     </style>
 </head>
