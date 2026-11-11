@@ -36,7 +36,7 @@
             --link-color: #4da3ff; /* Dark mode link */
         }
 
-        :root[data-theme='darkblue'] {
+        :root[data-theme='darkblue-old'] {
             --bg-color: #0d1b2a;
             --text-color: #e0e6ed;
             --card-bg: #1b263b;
@@ -188,11 +188,15 @@
         .btn-outline { background: transparent !important; color: var(--text-color) !important; border: 2px solid var(--accent); }
         .btn-outline:hover { border-color: var(--text-color); }
 
-        /* ====== COLOR ACCENT ====== */
-        :root[data-theme='light'] { --primary: #2563eb; --primary-soft: #e0eaff; --bg-color: #f3f6fb; }
-        :root[data-theme='dark'] { --primary: #60a5fa; --primary-soft: #1e2a3d; }
-        :root[data-theme='darkblue'] { --primary: #7fb3ff; --primary-soft: #23395b; }
-        header { background: linear-gradient(135deg, #1e3a8a, var(--primary)); font-size: 26px; font-weight: 700; letter-spacing: 0.5px; padding: 28px 20px; }
+        /* ====== THEME POLISH ====== */
+        :root[data-theme='light'] { --primary: #3b4a63; --primary-soft: #eef1f5; --header-grad: linear-gradient(135deg, #1f2937, #374151); --on-primary: #fff; }
+        :root[data-theme='dark'] { --primary: #a5b4c8; --primary-soft: #333842; --header-grad: linear-gradient(135deg, #000, #1f1f1f); --on-primary: #111; }
+        :root[data-theme='blue'] {
+            --bg-color: #f3f6fb; --text-color: #1a1a1a; --card-bg: #ffffff; --accent: #c7d6f2;
+            --nav-bg: #1e293b; --nav-text: #f1f5f9; --link-color: #2563eb;
+            --primary: #2563eb; --primary-soft: #e0eaff; --header-grad: linear-gradient(135deg, #1e3a8a, #2563eb); --on-primary: #fff;
+        }
+        header { background: var(--header-grad); font-size: 26px; font-weight: 700; letter-spacing: 0.5px; padding: 28px 20px; }
         nav { border-bottom: 3px solid var(--primary); }
         nav a { padding: 4px 2px; border-bottom: 2px solid transparent; }
         nav a:hover { text-decoration: none; border-bottom-color: var(--primary); }
@@ -200,10 +204,10 @@
         .container h1 { color: var(--primary); margin-top: 0; }
         .container h2 { position: relative; padding-left: 14px; }
         .container h2::before { content: ""; position: absolute; left: 0; top: 15%; height: 70%; width: 4px; border-radius: 4px; background: var(--primary); }
-        .cv-card h2, .contact-card h2 { padding-left: 0; }
+        .cv-card h2 { padding-left: 0; }
         .cv-card h2::before { display: none; }
         .accordion-content ul.skills li { background: var(--primary-soft); color: var(--text-color); border: 1px solid var(--primary); }
-        .btn { background: var(--primary) !important; color: #fff !important; }
+        .btn { background: var(--primary) !important; color: var(--on-primary) !important; }
         .btn:hover { filter: brightness(1.1); }
         .btn-outline { background: transparent !important; color: var(--text-color) !important; border: 2px solid var(--primary); }
         .cv-card, .contact-card, .about-box, .accordion { border-color: var(--primary-soft) !important; }
@@ -240,7 +244,7 @@
     <h3>Theme</h3>
     <button onclick="setTheme('light')">Light</button>
     <button onclick="setTheme('dark')">Dark</button>
-    <button onclick="setTheme('darkblue')">Dark Blue</button>
+    <button onclick="setTheme('blue')">Blue</button>
 </div>
 
 <div class="container">
@@ -283,7 +287,8 @@ function setTheme(theme) {
 }
 
 function loadTheme() {
-    const savedTheme = localStorage.getItem("theme") || "light";
+    let savedTheme = localStorage.getItem("theme") || "light";
+    if (savedTheme === "darkblue") savedTheme = "blue";
     document.documentElement.setAttribute("data-theme", savedTheme);
 }
 
