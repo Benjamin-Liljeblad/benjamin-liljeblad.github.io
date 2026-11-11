@@ -190,6 +190,9 @@
             background: #b5c0d3;
         }
 
+        .accordion-content ul.skills { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+        .accordion-content ul.skills li { margin: 0; padding: 8px 14px; border-radius: 999px; background: var(--accent); color: var(--text-color); font-size: 15px; font-weight: 600; }
+
         /* ====== MOBILE ====== */
         @media (max-width: 600px) {
             .container { margin: 16px; padding: 20px; }
@@ -243,7 +246,7 @@
         </div>
 
         <div id="accordion-content" class="accordion-content">
-            <ul>
+            <ul class="skills">
                 <li>Digital communication</li>
                 <li>AI-assisted web development</li>
                 <li>Basic HTML & CSS(AI assisted)</li>
